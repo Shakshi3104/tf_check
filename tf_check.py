@@ -21,18 +21,18 @@ def build_model(input_shape, classes=10):
 def build_vgg(input_shape, classes=10):
     inputs = tf.keras.layers.Input(input_shape)
 
-    x = tf.keras.layers.Conv2D(64, kernel_size=3, activation='relu')(inputs)
-    x = tf.keras.layers.Conv2D(64, kernel_size=3, activation='relu')(x)
-    x = tf.keras.layers.MaxPooling2D(pool_size=2)(x)
+    x = tf.keras.layers.Conv2D(64, kernel_size=3, activation='relu', padding='same')(inputs)
+    x = tf.keras.layers.Conv2D(64, kernel_size=3, activation='relu', padding='same')(x)
+    x = tf.keras.layers.MaxPooling2D(pool_size=2, padding='same')(x)
 
-    x = tf.keras.layers.Conv2D(128, kernel_size=3, activation='relu')(x)
-    x = tf.keras.layers.Conv2D(128, kernel_size=3, activation='relu')(x)
-    x = tf.keras.layers.MaxPooling2D(pool_size=2)(x)
+    x = tf.keras.layers.Conv2D(128, kernel_size=3, activation='relu', padding='same')(x)
+    x = tf.keras.layers.Conv2D(128, kernel_size=3, activation='relu', padding='same')(x)
+    x = tf.keras.layers.MaxPooling2D(pool_size=2, padding='same')(x)
 
-    x = tf.keras.layers.Conv2D(256, kernel_size=3, activation='relu')(x)
-    x = tf.keras.layers.Conv2D(256, kernel_size=3, activation='relu')(x)
-    x = tf.keras.layers.Conv2D(256, kernel_size=3, activation='relu')(x)
-    x = tf.keras.layers.MaxPooling2D(pool_size=2)(x)
+    x = tf.keras.layers.Conv2D(256, kernel_size=3, activation='relu', padding='same')(x)
+    x = tf.keras.layers.Conv2D(256, kernel_size=3, activation='relu', padding='same')(x)
+    x = tf.keras.layers.Conv2D(256, kernel_size=3, activation='relu', padding='same')(x)
+    x = tf.keras.layers.MaxPooling2D(pool_size=2, padding='same')(x)
 
     x = tf.keras.layers.Flatten()(x)
     x = tf.keras.layers.Dense(1024, activation='relu')(x)
