@@ -109,6 +109,9 @@ def normalize_img(image, label):
 
 
 if __name__ == "__main__":
+    print(tf.__version__)
+    print(tf.config.list_physical_devices('GPU'))
+
     # Load dataset
     (x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
     # Add channel-axis
